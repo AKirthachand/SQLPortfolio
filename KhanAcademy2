@@ -1,0 +1,42 @@
+CREATE TABLE singers(id INTEGER PRIMARY KEY,name TEXT);
+
+INSERT INTO singers(name) VALUES('Taylor Swift');
+INSERT INTO singers(name) VALUES('Ariana Grande');
+INSERT INTO singers(name) VALUES('Mariah Carey');
+INSERT INTO singers(name) VALUES('Beyonce');
+INSERT INTO singers(name) VALUES('Justin Bieber');
+INSERT INTO singers(name) VALUES('Michael Jackson');
+
+CREATE TABLE songs(singer_id INTEGER PRIMARY KEY,name TEXT,duration TEXT);
+
+INSERT INTO songs(name,duration) VALUES('Blank Space','3:00');
+INSERT INTO songs(name,duration) VALUES('Break Free','4:00');
+INSERT INTO songs(name,duration) VALUES('Shake it Off','5:00');
+INSERT INTO songs(name,duration) VALUES('Irreplaceable','4:00');
+INSERT INTO songs(name,duration) VALUES('Sorry','4:00');
+INSERT INTO songs(name,duration) VALUES('Bad','6:00');
+
+CREATE TABLE home_state(id INTEGER PRIMARY KEY,name TEXT);
+
+INSERT INTO home_state(name) VALUES('Pennsylvania');
+INSERT INTO home_state(name) VALUES('Florida');
+INSERT INTO home_state(name) VALUES('New York');
+INSERT INTO home_state(name) VALUES('Texas');
+INSERT INTO home_state(name) VALUES('London CA');
+INSERT INTO home_state(name) VALUES('Indiana');
+
+
+/*In this project, you’re going to make your own table with some small set of “famous people”, then make more tables about things they do and join those to create nice human readable lists.
+
+*/
+
+
+
+SELECT * FROM singers JOIN songs ON singers.id=singer_id
+JOIN home_state ON singers.id=home_state.id;
+
+
+
+
+
+
