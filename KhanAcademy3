@@ -1,0 +1,64 @@
+CREATE TABLE cars
+(id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT,
+colour TEXT,
+HP INTEGER,
+mileage INTEGER);
+ 
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Toyota','silver',400,40000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Audi','brown',800,70000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Datsun','green',500,90000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Mercedes','grey',1000,70000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Hyundai','yellow',400,100000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Honda','black',800,50000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Smart','white',100,80000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('BMW','silver',1000,70000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('VW','black',900,20000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Ferrari','red',1500,30000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Lamborghini','white',1500,70000);
+
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Toyota','silver',700,80000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Audi','brown',850,90000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Datsun','green',900,70000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Mercedes','grey',900,40000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Hyundai','yellow',500,80000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Honda','black',700,90000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Smart','white',200,30000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('BMW','silver',9000,20000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('VW','black',900,70000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Ferrari','red',1500,70000);
+INSERT INTO cars(name,colour,HP,mileage) VALUES ('Lamborghini','white',1500,60000);
+
+/*What are average, max, and min values in the data?
+What about those numbers per category in the data (using HAVING)?
+What ways are there to group the data values that don’t exist yet (using CASE)?
+What interesting ways are there to filter the data (using AND/OR)?*/
+
+
+/* Find the AVG,MAX and MIN HP values within the data*/
+
+SELECT AVG(HP) FROM cars;
+SELECT MAX(HP) FROM cars;
+SELECT MIN(HP) FROM cars;
+
+/*WHICH car brand has more than 800 HP*/
+
+SELECT (name),SUM(HP) AS Total_HP FROM cars GROUP BY (name)
+HAVING Total_HP >800;
+
+/*Group the data using CASE and make a new column*/
+
+SELECT name,
+CASE WHEN HP>700 THEN 'Fast'
+WHEN HP<700 THEN 'slow'
+END as 'speed'
+FROM cars;
+
+/*Filter the data using AND and OR*/
+
+SELECT * FROM cars;
+
+SELECT * FROM cars WHERE HP>1000 AND mileage<50000;
+
+SELECT * FROM cars where mileage>80000 OR HP<600;
+
