@@ -1,0 +1,36 @@
+CREATE TABLE store(id INTEGER PRIMARY KEY,p_name TEXT,material TEXT,size TEXT,price NUMERIC);
+
+INSERT INTO store VALUES (1,'t_shirt','cotton','L',24.99);
+
+INSERT INTO store VALUES (2,'jersey','cotton','M',45.99);
+
+INSERT INTO store VALUES (3,'shorts','cotton','L',13.99);
+
+INSERT INTO store VALUES (4,'pants','cotton','M',65.99);
+
+INSERT INTO store VALUES (5,'scarf','cotton','S',5.99);
+
+INSERT INTO store VALUES (6,'Sneakers','leather','XL',149.99);
+
+INSERT INTO store VALUES (7,'Jacket','Leather','XL',279.99);
+
+INSERT INTO store VALUES (8,'T_shirt','cotton','S',19.99);
+
+INSERT INTO store VALUES (9,'T_shirt','cotton','XS',17.99);
+
+INSERT INTO store VALUES (10,'Pants','cotton','S',29.99);
+
+INSERT INTO store VALUES (11,'Scarf','wool','SS',4.99);
+
+INSERT INTO store VALUES (12,'Overall','cotton','M',59.99);
+
+INSERT INTO store VALUES (13,'Overall','cotton','L',69.99);
+
+INSERT INTO store VALUES (14,'Overall','cotton','S',49.99);
+
+INSERT INTO store VALUES (15,'Overall','cotton','XL',79.99);
+
+
+SELECT SUM(price) FROM store;
+
+SELECT * FROM store ORDER BY price;
