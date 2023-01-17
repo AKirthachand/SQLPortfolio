@@ -1,0 +1,370 @@
+CREATE DATABASE my_first_database;
+CREATE DATABASE my_second_database;
+SHOW DATABASES;
+USE my_first_database
+
+CREATE TABLE person(
+id INT,
+first_name VARCHAR(20),
+last_name VARCHAR(20)
+);
+
+SHOW TABLES;
+
+SELECT * FROM person;
+
+USE my_second_database
+
+CREATE TABLE car(
+id INT,
+brand VARCHAR(20),
+model VARCHAR(20)
+);
+
+CREATE DATABASE homework1
+USE homework1
+
+CREATE TABLE product(
+id INT,
+product_name VARCHAR(20),
+price DECIMAL(4,2)
+);
+
+
+
+CREATE TABLE people(
+id INT,
+name VARCHAR(20),
+phone_number VARCHAR(10),
+date_of_birth DATE,
+height DECIMAL(3,2)
+);
+
+
+CREATE TABLE computer(
+brand VARCHAR(20),
+ram_memory INT,
+processor VARCHAR(20),
+price INT
+);
+
+SELECT * FROM computer;
+
+
+
+ALTER TABLE people ADD skin_colour VARCHAR(20);
+
+
+
+
+CREATE DATABASE homework2;
+
+USE homework2;
+
+CREATE TABLE product(
+id INT,
+price DECIMAL(4,2)
+);
+
+
+
+ALTER TABLE product DROP COLUMN price;
+
+
+ALTER TABLE people ADD COLUMN gender VARCHAR(1);
+
+CREATE TABLE people(
+id INT,
+p_name VARCHAR(20),
+phone_number VARCHAR(10),
+date_of_birth DATE,
+height DECIMAL(3,2)
+);
+
+
+
+
+ALTER TABLE people ADD COLUMN IQ INT;
+
+
+SELECT * FROM people;
+
+CREATE TABLE computer(
+brand VARCHAR(20),
+ram_memory INT,
+processor VARCHAR(20),
+price INT
+);
+
+
+
+
+
+
+ALTER TABLE computer ADD COLUMN c_colour VARCHAR(20);
+
+SELECT * FROM computer;
+
+CREATE TABLE student(
+id INT,
+s_first_name VARCHAR(20),
+s_last_name VARCHAR(20),
+s_email VARCHAR(40),
+grade INT
+);
+
+
+INSERT INTO student VALUES(1,'ashveer','kirthachand','ashveer.k19@gmail.com',7);
+
+
+CREATE DATABASE insert_database;
+
+
+CREATE TABLE product(
+id INT,
+p_name VARCHAR(20),
+p_description VARCHAR(20)
+);
+
+SELECT * FROM product;
+
+INSERT INTO product VALUES(2,'keyboard','used for typing'); 
+INSERT INTO product VALUES(3,'monitor','visual'); 
+
+SELECT * FROM product;
+
+CREATE TABLE student(
+id INT,
+s_name VARCHAR(30),
+phone_number VARCHAR(10),
+average DECIMAL(4,2)
+);
+
+
+INSERT INTO student VALUES(1,'messi','0117263728',86.20);
+INSERT INTO student VALUES(2,'ronaldo','0738297364',86.20);
+INSERT INTO student VALUES(3,'modric','0922873598',76.95);
+INSERT INTO student VALUES(4,'bale','0971896274',74.28);
+INSERT INTO student VALUES(5,'suarez','0862869973',74.28);
+
+SELECT * FROM student;
+
+CREATE TABLE computer(
+brand VARCHAR(20),
+ram_memory INT,
+processor VARCHAR(20),
+price DECIMAL(4,2)
+);
+
+
+SELECT * FROM computer;
+
+
+
+
+INSERT INTO computer(brand,processor) VALUES('meccer','NVD3360');
+INSERT INTO computer(brand,processor) VALUES('acer','NVD3765');
+INSERT INTO computer(brand,processor) VALUES('asus','NVD3328');
+CREATE DATABASE selectdb;
+
+CREATE TABLE product(
+id INT PRIMARY KEY AUTO_INCREMENT,
+p_name VARCHAR(20),
+customers_name VARCHAR(20)
+);
+
+INSERT INTO product VALUES(1,'sugar','goku');
+INSERT INTO product VALUES(2,'spice','vegeta');
+INSERT INTO product VALUES(3,'jam','frieza');
+INSERT INTO product VALUES(4,'peanut butter','chi chi');
+INSERT INTO product VALUES(5,'rice','roshi');
+
+
+SELECT * FROM product;
+
+SELECT id,p_name FROM product;
+
+
+
+CREATE DATABASE where_db;
+USE where_db;
+
+
+CREATE TABLE products(
+id INT PRIMARY KEY AUTO_INCREMENT,
+p_name VARCHAR(20),
+customers_name VARCHAR(20)
+);
+
+SELECT * FROM products;
+
+
+INSERT INTO products VALUES(1,'audi','john');
+INSERT INTO products VALUES(2,'bmw','mike');
+INSERT INTO products VALUES(3,'toyota','john');
+INSERT INTO products VALUES(4,'vw','paul');
+INSERT INTO products VALUES(5,'ford','ben');
+
+SELECT * FROM products;
+SHOW TABLES;
+
+
+SELECT * FROM products WHERE customers_name = 'john';
+
+
+DROP TABLE product;
+
+CREATE TABLE people(
+id INT PRIMARY KEY AUTO_INCREMENT,
+p_name VARCHAR(20),
+p_description VARCHAR(100) 
+);
+
+INSERT INTO people(p_name,p_description) VALUES('mark','unspecified');
+INSERT INTO people(p_name,p_description) VALUES('matt','unspecified');
+INSERT INTO people(p_name,p_description) VALUES('tracy','short');
+INSERT INTO people(p_name,p_description) VALUES('billy','dark');
+INSERT INTO people(p_name,p_description) VALUES('beau','tall');
+
+
+SELECT * FROM people;
+
+
+SELECT * FROM people WHERE p_description='unspecified';
+
+DROP TABLE people;
+
+
+CREATE TABLE computer(
+brand VARCHAR(20),
+ram_memory INT,
+processor VARCHAR(10)
+);
+
+INSERT INTO computer VALUES('meccer',2,'NDV6670');
+INSERT INTO computer VALUES('acer',4,'NDVe670');
+INSERT INTO computer VALUES('meccer',8,'NDV6r70');
+INSERT INTO computer VALUES('meccer',16,'NDV6j70');
+INSERT INTO computer VALUES('meccer',4,'NDV6u70');
+
+SELECT * FROM computer WHERE brand='meccer';
+
+SELECT * FROM computer WHERE ram_memory<8;
+
+
+CREATE DATABASE updatedb;
+
+USE updatedb;
+
+CREATE TABLE products(
+id INT PRIMARY KEY AUTO_INCREMENT,
+p_name VARCHAR(20),
+price INT
+);
+
+INSERT INTO products (p_name,price) VALUES('pants',50);
+INSERT INTO products (p_name,price) VALUES('t_shirt',30);
+INSERT INTO products (p_name,price) VALUES('shorts',40);
+INSERT INTO products (p_name,price) VALUES('pants',50);
+INSERT INTO products (p_name,price) VALUES('pants',50);
+
+SELECT * FROM products;
+
+UPDATE products SET price = 90;
+
+
+DROP TABLE products;
+
+CREATE TABLE people(
+id INT PRIMARY KEY AUTO_INCREMENT,
+p_name VARCHAR(20),
+profession VARCHAR(20)
+);
+
+INSERT INTO people (p_name,profession) VALUES ('john','builder');
+INSERT INTO people (p_name,profession) VALUES ('mark','plumber');
+INSERT INTO people (p_name,profession) VALUES ('seth','tiler');
+INSERT INTO people (p_name,profession) VALUES ('tom','mechanic');
+INSERT INTO people (p_name,profession) VALUES ('mike','electrician');
+
+
+UPDATE people SET p_name = 'paul' WHERE id='3';
+UPDATE people SET profession = 'engineer' WHERE id='3';
+
+DROP TABLE people;
+
+CREATE TABLE computer(
+brand VARCHAR(20),
+ram_memory INT,
+processor VARCHAR(10)
+);
+
+INSERT INTO computer VALUES('apple',2,'i3');
+INSERT INTO computer VALUES('samsung',4,'i5');
+INSERT INTO computer VALUES('lg',8,'i7');
+INSERT INTO computer VALUES('sony',16,'i3');
+INSERT INTO computer VALUES('asus',4,'i5');
+
+SELECT * FROM computer;
+
+UPDATE computer SET ram_memory=24 WHERE brand IN ('apple','samsung','asus');
+
+CREATE DATABASE deletedb;
+USE deletedb;
+
+CREATE TABLE employees(
+id INT PRIMARY KEY AUTO_INCREMENT,
+e_name VARCHAR(20),
+salary INT
+);
+
+INSERT INTO employees (e_name,salary) VALUES('mark',5000);
+INSERT INTO employees (e_name,salary) VALUES('paul',7000);
+INSERT INTO employees (e_name,salary) VALUES('tom',8000);
+INSERT INTO employees (e_name,salary) VALUES('chris',9000);
+INSERT INTO employees (e_name,salary) VALUES('max',10000);
+
+DROP TABLE employees;
+
+CREATE TABLE people(
+id INT PRIMARY KEY AUTO_INCREMENT,
+p_name VARCHAR(20),
+e_mail VARCHAR(50)
+);
+
+INSERT INTO people (p_name,e_mail) VALUES('mark','mark@gmail.com');
+INSERT INTO people (p_name,e_mail) VALUES('john','john@gmail.com');
+INSERT INTO people (p_name,e_mail) VALUES('mike','mike@gmail.com');
+INSERT INTO people (p_name,e_mail) VALUES('paul','paul@gmail.com');
+INSERT INTO people (p_name,e_mail) VALUES('tom','tom@gmail.com');
+
+SELECT * FROM people;
+
+DELETE FROM people WHERE p_name='john';
+
+SELECT * FROM people;
+DROP TABLE people;
+
+CREATE TABLE laptop(
+brand VARCHAR(20),
+ram_memory INT,
+price INT
+);
+
+INSERT INTO laptop VALUES('asus',2,5000);
+INSERT INTO laptop VALUES('dell',4,6000);
+INSERT INTO laptop VALUES('samsung',8,7000);
+INSERT INTO laptop VALUES('apple',16,8000);
+INSERT INTO laptop VALUES('meccer',4,9000);
+SELECT * FROM laptop;
+
+DELETE FROM laptop WHERE ram_memory<'12';
+
+SELECT * FROM laptop;
+
+SHOW databases;
+
+
+
+
+
